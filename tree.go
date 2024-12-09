@@ -22,8 +22,8 @@ func tree() {
     panic(err)
   }
 
-  for _, p := range.probes {
-    if node == nil || oldMAC := p.Device.MAC {
+  for _, p := range probes {
+    if node == nil || oldMAC != p.Device.MAC {
       node = tview.NewTreeNode(fmt.Sprintf("%s %s", p.Device.Product, p.Device.MAC))
       root.AddChild(node)
       node.SetColor(tcell.ColorGreen)

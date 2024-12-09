@@ -6,10 +6,10 @@ import (
   "time"
 )
 
-type Devince struct {
+type Device struct {
   ID uint `gorm:"primaryKey"`
   MAC string `gorm:"uniqueIndex"`
-  Produc string
+  Product string
 }
 
 type Probe struct {
@@ -25,7 +25,7 @@ type DB struct {
 }
 
 func NewDB() (*DB, error) {
-  db, err := gorm.Open(sqlite.Open("wifiwatch.db"), &gorm.Config())
+  db, err := gorm.Open(sqlite.Open("wifiwatch.db"), &gorm.Config{})
   if err != nil {
     return nil, err
   }
@@ -35,7 +35,7 @@ func NewDB() (*DB, error) {
     return nil, err
   }
 
-  return &DB(DB: db), nil
+  return &DB{DB: db}, nil
 }
 
 func (db *DB) Add(ip, mac, product string, timestamp time.Time) error {
